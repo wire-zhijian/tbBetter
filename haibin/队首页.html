@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <title> new document </title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  body{font-size:14px;font-family:"微软雅黑";background:#E1E1E1}
+  li{list-style:none;}
+  /*******************top   S*************************/
+#top{background:#111;height:38px}
+#top #t_top{width:75%;height:38px;margin:0 auto;}
+#top #t_top #t_ul{line-height:38px}
+#top #t_top #t_ul li{float:left;line-height:38px;padding:0 35px;color:#999999;cursor:pointer;
+		border-left:1px solid #ccc;}
+#top #t_top #t_ul li:nth-child(1){border-left:none}
+#top #t_top #t_ul li:hover{color:#ccc}
+/*********************E    top***********************/
+ /*******************banner   S*************************/
+ #outbannerbox{width:1080px;height:500px;margin:20px auto}
+#bannerbox{margin:0 auto}
+#bannerbox #b_ul li{float:left;width:160px;height:400px;position:relative;overflow:hidden;}
+.cz{background:#7E7E7E;width:100%;height:100%;position:absolute;top:400px;left:0;transition:top 0.3s ease;
+		font-size:40px;line-height:150px;font-family:"微软雅黑";
+}
+#bannerbox #b_ul li:nth-child(1){margin-left:60px}
+#bannerbox #b_ul li:hover .cz{top:0;transition:top 0.3s ease}
+/*********************E    banner***********************/
+  </style>
+ </head>
+
+ <body>
+ <!--top   S-->
+  <div id = "top">
+		<div id ="t_top">
+			<ul id = "t_ul">
+					<li>队员</li>
+					<li>傻.小子</li>
+					<li>Icē T!Mē</li>
+					<li>#</li>
+					<li>奔向没有终点的旅程。</li>
+					<li>沙砾</li>
+					<li>小赵</li>
+			</ul>
+		</div>
+  <div>
+ <!--E     top-->
+<div id = "outbannerbox">
+	<div id = "bannerbox">
+			<ul id = "b_ul">
+						<li style="background:red">
+									<div class = "cz">傻.小子</div>
+						</li>
+						<li style="background:orange">
+									<div class = "cz">Icē T!Mē</div>
+							</li>
+						<li style="background:yellow">
+									<div class = "cz">#</div>
+							</li>
+						<li style="background:green">
+									<div class = "cz">奔向没有终点的旅程。</div>
+						</li>
+						<li style="background:blue">
+									<div class = "cz">沙砾</div>
+							</li>
+						<li style="background:#C0F">
+									<div class = "cz">小赵</div>
+							</li>
+			</ul>
+	</div>
+</div>
+ </body>
+</html>
