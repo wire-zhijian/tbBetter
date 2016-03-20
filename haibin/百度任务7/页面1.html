@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <title> new document </title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <style type="text/css">
+  *{margin:0;padding:0}
+  body{font-size:14px;font-family:"微软雅黑"}
+  a{text-decoration:none;font-family:"微软雅黑";font-size:14px;}
+  ul li{list-style:none;}
+/***************head  S*******************/
+#head{height:45px;background:#fff;}
+#head #h_top{height:45px;width:1000px;margin:0 auto;position:relative;}
+#head #h_top #h_logo{width:100px;float:left;}
+#head #h_top #h_ulbox{float:right;height:100%;width:700px;position:absolute;right:0;top:0;}
+#head #h_top #h_ulbox ul li{float:right;height:45px;line-height:45px;}
+#head #h_top #h_ulbox ul li a{display:block;padding:0 30px;}
+#head #h_top #h_ulbox ul li a:hover{border-bottom:3px red solid;}
+/****************E  head*****************/
+/*************************foot  S********************************/
+  #foot{width:1000px;margin:20px auto 0;}
+#foot #f_imgbox ul li{float:left;width:250px;}
+#foot #f_text ul li{float:left;width:230px;border-left:2px solid #ccc;height:48px;padding:0 9px;}
+#foot #f_text ul li:nth-child(1){border-left:none;}
+#foot #f_text ul li span{font-size:12px;color:#777777;}
+/**************************E   foot*****************************/
+#next{display:block;background:#ccc;position:fixed;right:30px;top:50%;opacity:0.6;padding:10px;}
+#next:hover{opacity:1}
+  </style>
+ </head>
+
+ <body>
+ <a href = "页面2.html" id="next">下一页</a>
+ <!-- head  S-->
+  <div id = "head">
+		<div id = "h_top">
+				<div id = "h_logo"><img src = "images/h_logo.png" height=45px/></div>
+				<div id = "h_ulbox">
+					<ul>
+							<li><a href = "#">登录</a></li>
+							<li><a href = "#">关于我们</a></li>
+							<li><a href = "#">爱心社区</a></li>
+							<li><a href = "#">项目介绍</a></li>
+							<li><a href = "#">最新活动</a></li>
+							<li id="h_fli"><a href = "#">首页</a></li>
+					</ul>
+				</div>
+		</div>
+  </div>
+  <!--E  head-->
+  <!--banner S-->
+  <div id= "banner">
+			<a href="#"><img src = "images/banner.png" width="100%" height="400px"></a>
+  </div>
+  <!--E  banner-->
+  <!--foot S-->
+<div id = "foot">
+		<div id = "f_imgbox">
+				<ul>
+						<li><img src = "images/f_img1.png"></li>
+						<li><img src = "images/f_img2.png"></li>
+						<li><img src = "images/f_img3.png"></li>
+						<li><img src = "images/f_img4.png"></li>
+				</ul>
+		</div>
+		<div id = "f_text">
+				<ul>
+						<li><span>打造全新世界观，让你更爱你的生活。</span></li>
+						<li><span>丰富多彩的公益活动，发挥新世界的主人公意识。</span></li>
+						<li><span>时尚的新理念，超前体验未知的生活。</span></li>
+						<li><span>完善的培训机制，培养你全新的世界观。</span></li>
+				</ul>
+		</div>
+</div>
+  <!--S  foot-->
+ </body>
+</html>
