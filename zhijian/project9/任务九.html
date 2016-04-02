@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+   <meta charset = "UTF-8"/>
+   <title> new document </title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <style type="text/css">
+
+ ul li{list-style:none;}
+ a{text-decoration:none;}
+ body{height:3000px;color:#666;font-size:14px;font-family:"微软雅黑";background:#ECECEC;}
+ /*****************************top  S***********************************/
+ .top{width:100%;background:#2189BF;height:45px;position:fixed;top:0;left:0;z-index:3000}
+ .t_head{width:1200px;margin:0 auto;}
+ /*******logo  S************/
+.t_h_logo{float:left;margin-top:8px}
+ /*******denglu  S************/
+.t_h_denglu{float:right;margin-top:14px;background:url("images/t_dl.png") no-repeat;width:100px;background-position:-1px -1px}
+.t_h_denglu a{display:block;color:#fff;font-weight:700;text-indent:20px;font-size:14px;}
+ /*******seach  S************/
+.t_h_seach{float:right;margin-top:10px;border-radius:90px;;width:300px;height:20px;margin-right:30px;display:block;background-image:url("images/t_serach.png");background-repeat:no-repeat;background-color:#fff;}
+ /*****************************E   top***********************************/
+ /************************left  S**********************************/
+ .left{width:250px;height:800px;background:#2B2E3D;position:fixed;top:0;left:0;}
+ #leftbox{width:250px;margin-top:45px;background:gray;}
+ /******l_picture  S***************/
+ .l_picture{height:100px;width:180px;cursor:pointer;float:left;margin-left:20px}
+ .l_picture span{display:block;margin-top:45px;color:#fff;float:right;}
+ /*********l_num   S*****************/
+.l_num_left{height:60px;width:124px;border-right:1px solid #ccc;float:left;}
+.l_num_left ol li{line-height:30px;text-align:center;list-style:none}
+.l_num_right{height:60px;width:125px;float:right;}
+.l_num_right ol li{line-height:30px;text-align:center;list-style:none}
+ol li a{color:#fff;}
+/***********ulbox  S*********************/
+.ulbox{width:250px;height:600px;position:absolute;top:216px;left:0px}
+.ulbox a{display:block;color:#5C6B7E;padding:10px;text-indent:24px}
+.on{background:#383E4E;}
+#on1 a{color:#fff;}
+#on2 a{color:#fff;}
+#on3 a{color:#fff;}
+.t_li{background:url("images/wjb.png") no-repeat;background-position:7px 9px}
+#on2{background:url("images/wjon.png") no-repeat;background-position:7px 9px}
+.b_li{background:url("images/wdb.png") no-repeat;background-position:7px 9px}
+#on3{background:url("images/wdon.png") no-repeat;background-position:7px 9px}
+/*************************E  left*********************************/
+ /************************right  S**********************************/
+ .right{width:100%;}
+ .r_box{width:1096px;margin:45px 0 0 240px;}
+ /************t_b_top  S***************/
+ .t_b_top{background:#fff;height:45px;line-height:45px;text-indent:30px}
+  .r_box p a{padding:10px 0;display:block}
+  .b{color:#000;}
+  .r_b_content{width:960px;height:800px;margin:30px auto 0;}
+  /**************r_b_c_select  S*********************/
+	.r_b_c_select{width:100%;height:100px;background:#fff}
+.p20{display:block;margin:12px 30px;float:left}
+.p176{display:block;margin:12px 30px 0 215px;float:left}
+.w110{width:110px}
+.w70{width:70px}
+/**********left  S**************/
+.r_b_c_s_left{width:800px;height:100px;background:url("images/select.png") no-repeat;background-position:365px 2px;float:left}
+/*******right  S*********/
+.r_b_c_s_right{float:left;width:60px;margin-top:30px;}
+.btn{background:blue;color:#fff;border:none;padding:10px 20px;cursor:pointer;}
+/**************E  r_b_c_select*********************/
+/***********r_b_c_time  S*************/
+.r_b_c_time{width:100%;height:100px;margin:10px 0 30px;}
+.r_b_c_time .w40{width:40px;height:100px;float:left;margin:0 10px;}
+.r_b_c_time .w110{width:100px;height:100px;float:left;margin:0 10px;background:#fff}
+.r_b_c_time1{background:url("images/left.png") no-repeat #fff;background-position:6px 31px;}
+.r_b_c_time2{background:url("images/right.png") no-repeat #fff;background-position:3px 31px}
+.w110 .p1{color:#000;font-weight:600;text-align:center}
+.w110 .p2{color:#ccc;font-weight:600;text-align:center}
+.w110 .p2 span{font-size:30px;color:orange}
+  /*************allbox  S********************/
+	.r_b_c_all{width:100%;height:150px;}
+	.r_b_c_a_box{width:206px;height:100px;background:#fff;float:left;margin-right:28px;}
+	.r_textbox{position:relative;}
+	.r_evebox h6{color:#ccc}
+	.r_colorbox{width:90px;height:80px;}
+/*************E  allbox********************/
+
+ /**************forms start******************/
+ /******************form1 start*******************/
+.form_header{width:100%;height:40px;background:#F4F5F7;border-radius:5px 5px 0 0;line-height:40px;text-indent:20px;}
+.nav li{border-radius:4px 4px 0 0;margin:0 2px;float:left;position:relative;background:#999;width:85px;height:30px;line-height:30px;text-align:center;cursor:pointer;}
+.nav li.selected_li{background:#fff;border:1px solid #666;border-bottom:0;}
+.buySomething{border-collapse: collapse;margin:0 auto;border-radius:5px;}
+ .buySomething tr td{border:1px solid #666;padding:5px;}
+ .buySomething tr td:hover{background:#999;}
+ /**************form1 end**********************/
+ .date{color:#333;padding:0 14px;line-height:32px;margin-left:2px;}
+ .dateView{font-size:12px;margin-top:5px;margin:0 auto;}
+ .dateView tr td{padding:5px;border:1px solid #fff;}
+ table.dateView tr td:hover{border:1px solid yellow;}
+ /***************forms end*********************/
+ .carSellMsg tr td{border:1px solid #666;padding:2px 18px;text-align:center;font-size:15px;font-weight:bold;}
+ /*************************E  right*********************************/
+
+  </style>
+ </head>
+
+ <body>
+ <!--top  S-->
+ <div class = "top">
+	<div class = "t_head">
+		<div class = "t_h_logo"><a href = "###"><img src = "images/t_logo.png"/></a></div>
+		<div class = "t_h_denglu"><a href = "###">登录</a></div>
+		<input type ="text" class = "t_h_seach" value = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/>
+	</div>
+ </div>
+ <!--E  top-->
+<!--left  S-->
+<div class = "left">
+	<div id = "leftbox">
+		<div class = "l_picture">
+				<img src = "images/r_picture.png"/>
+				<span>ABC123</span>
+		</div>
+		<div class = "l_num_left">
+			<ol>
+				<li><a href = "">110</a></li>
+				<li><a href = "">收藏</a></li>
+			</ol>
+		</div>
+		<div class = "l_num_right">
+			<ol>
+				<li><a href = "">313</a></li>
+				<li><a href = "">粉丝</a></li>
+			</ol>
+		</div>
+	 </div>
+	 <div class = "ulbox">
+			<ul class = "on">
+				<li class = "f_li" id = "on1"><a href = "###" >个人报表</a></li>
+				<li class = "l_ulb_fl on">
+					<ul class = "on">
+						<li class = "t_li"><a href = "###">文件一</a></li>
+						<li id = "on2"><a href = "###" >文件二</a></li>
+						<li>
+							<ul>
+								<li class = "b_li"><a href = "###">文档一</a></li>
+								<li  id = "on3"><a href = "###" >文档二</a></li>
+							</ul >
+						</li>
+						<li class = "t_li"><a href = "###">文件三</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li class = "f_li"><a href = "###">个人收藏</a></li>
+				<li class = "f_li"><a href = "###">我的分享</a></li>
+				<li class = "f_li"><a href = "###">图库</a></li>
+				<li class = "f_li"><a href = "###">成长记录</a></li>
+				<li class = "f_li"><a href = "###">账户信息</a></li>
+			</ul>
+		</div>
+</div>
+<!--E  left-->
+<!--right  S-->
+<div class = "right">
+	<div class = "r_box">
+		<div class = "t_b_top">
+			<span><a href = "###" class = "b">C站</a>/<a href = "###" class = "b">个人报表</a>/<a href = "###" class = "b">文件一</a>/<a href = "###">文档二</a></span>
+		</div>
+		<div class="r_b_content">
+			<div class = "r_b_c_select">
+				<div class = "r_b_c_s_left">
+					<label class = "p20">查询项
+						<select class = "w70">
+							<option>第一项</option>
+						</select>
+					</label>
+					<label class = "p20">买方
+						<select class = "w110">
+							<option>小A</option>
+						</select>
+					</label>
+					<label class = "p20">日期
+						<input type = "text" value = "2016-04-01" class = "w110"/>
+					</label>
+					<label class = "p20">总耗时
+						<select class = "w70">
+							<option>8天</option>
+						</select>
+					</label><br /><br />
+					<label class = "p176">卖方
+						<select class = "w110">
+							<option>小C</option>
+						</select>
+					</label>
+					<label class = "p20">人数
+						<select class = "w70">
+							<option>10人</option>
+						</select>
+					</label>
+					<label class = "p20">成交项
+						<select class = "w110">
+							<option>10项</option>
+						</select>
+					</label>
+				</div>
+				<div class = "r_b_c_s_right">
+					<input type = "button" value = "搜索" class = "btn"/>
+				</div>
+			</div>
+			<div class = "r_b_c_time">
+				<div class = "w40 r_b_c_time1"></div>
+				<div class = "w110" style = "border-top:3px solid blue">
+					<p class = "p1">10:00am</p>
+					<p class = "p2">￥<span>1200</span></p>
+				</div>
+				<div class = "w110">
+					<p class = "p1">11:00am</p>
+					<p class = "p2">￥<span>1300</span></p>
+				</div>
+				<div class = "w110">
+					<p class = "p1">12:00am</p>
+					<p class = "p2">￥<span>1200</span></p>
+				</div>
+				<div class = "w110">
+					<p class = "p1">01:00pm</p>
+					<p class = "p2">￥<span>1400</span></p>
+				</div>
+				<div class = "w110">
+					<p class = "p1">02:00pm</p>
+					<p class = "p2">￥<span>1500</span></p>
+				</div>
+				<div class = "w110">
+					<p class = "p1">03:00pm</p>
+					<p class = "p2">￥<span>1800</span></p>
+				</div>
+				<div class = "w40 r_b_c_time2" ></div>
+				<div class = "w110"></div>
+			</div>
+			<div class = "r_b_c_all">
+				<p >2016年4月份统计</p>
+				<div class = "r_b_c_a_box" style = "border-left:6px solid green;">
+					<div class = "r_evebox">
+						<div class = "r_textbox">
+							<h5>133311</h5>
+							<h6>成交量</h6>
+							<div class = "r_colorbox" style = "background:green;position:absolute;top:-10px;left:100px"></div>
+						</div>
+					</div>
+				</div>
+				<div class = "r_b_c_a_box" style = "border-left:6px solid blue">
+					<div class = "r_textbox">
+							<h5>133311</h5>
+							<h6>成交量</h6>
+							<div class = "r_colorbox" style = "background:blue;position:absolute;top:-10px;left:100px"></div>
+						</div>
+				</div>
+				<div class = "r_b_c_a_box" style = "border-left:6px solid red">
+					<div class = "r_textbox">
+							<h5>133311</h5>
+							<h6>成交量</h6>
+							<div class = "r_colorbox" style = "background:red;position:absolute;top:-10px;left:100px"></div>
+						</div>
+				</div>
+				<div class = "r_b_c_a_box" style = "border-left:6px solid yellow">
+					<div class = "r_textbox">
+							<h5>133311</h5>
+							<h6>成交量</h6>						
+							<div class = "r_colorbox" style = "background:yellow;position:absolute;top:-10px;left:100px"></div>
+						</div>
+				</div>
+			</div>
+			<div id="formBox">
+				<!-- form1 start-->
+				<div id="form1" style="width:55%;height: 400px;background:#fff;border-radius:5px;float:left;border:1px solid #999;">
+					<div class="form_header">
+						tbBetter项目
+					</div>
+					<div clas="form_container">
+						<ul class="nav">
+							<li class="selected_li">
+								项目一
+							</li>
+							<li>
+								项目一
+							</li>
+							<li>
+								项目一
+							</li>
+							<li>
+								项目一
+							</li>
+							<li>
+								项目一
+							</li>
+						</ul>
+						<div style="clear:both;"></div>
+						<div class="form_content" style="width:100%;">
+							<div style="border:1px solid #666;width:441px;margin:0 auto;margin-left:42px;border-top:0;height:200px;padding:30px 0;">
+								<table class=buySomething>
+									<tr>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+									</tr>
+									<tr>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+									</tr>
+									<tr>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+									</tr>
+									<tr>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+									</tr>
+									<tr>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+									</tr>
+									<tr>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+										<td>购买材料一</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- form1 end-->
+				<!-- form2 strat-->
+				<div class="form2" style="width:40%;height:400px;float:left;margin:0 20px;background: #ffffff;border-radius:5px;border:1px solid #999;">
+					<div class="form_header">tbBetter项目</div>
+					<form style="width:70%;margin:0 auto;height:300px;">
+						<h5 style="color:#666;">标题</h5>
+						<p>项目报表三</p>
+						<div style="border-top:1px solid #666;border-bottom:1px solid #666;">
+							<div style="float:left;border-right:1px solid #666;width:110px;padding-left:10px;">
+								<p style="margin:5px">价格</p>
+								<p style="margin:5px">￥158</p>
+							</div>
+							<div style="float:left;">
+								<p style="margin:5px">负责人</p>
+								<p style="margin:5px">小A</p>
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						<textarea style="color:#333;width:calc(100% - 5px);height: 110px;border:0;border-bottom:1px solid #666;">该项目负责人是....</textarea>
+						<input type="checkbox" name="makeSure" checked="checked"/>
+						<label style="color:#111;">遵守保密协议</label>
+						<span style="display:inline-block;background:#398AC1;color:#fff;padding:2px 8px;float:right;margin-right:8px;">搜索</span>
+					</form>
+				</div>
+				<div style="clear:both;"></div>
+				<!-- fomr2 end-->
+				<div style="height:354px;width:98%;margin-top:10px;">
+					<div class="form3" style="width:40%;background:#fff;border-radius:5px;border:1px solid #999;height:100%;float:left;">
+						<div class="form_header">日历</div>
+						<div style="margin-top:10px;">
+							<select style="margin-left:24px;">
+								<option>2016年</option>
+							</select>
+							<select style="padding:0 15px;margin:0 5px;">
+								<option>4月</option>
+							</select>
+							<select style="margin:0 5px;">
+								<option>标注日期</option>
+							</select>
+							<span style="display:inline-block;background:#fff;border:1px solid #666;color:#444;padding:0 4px;margin:0 5px;">返回今天</span>
+						</div>
+						<div style="height:34px;width:90%;margin:0 auto;margin-top:5px;border-top:1px solid #333;border-bottom:1px solid #333;">
+							<span class="date">一</span>
+							<span class="date">二</span>
+							<span class="date">三</span>
+							<span class="date">四</span>
+							<span class="date">五</span>
+							<span class="date">六</span>
+							<span class="date">日</span>
+						</div>
+						<table class="dateView">
+							<tr>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+								<td>
+									<p style="margin:0;text-align:center;">1</p>
+									<span>愚人节</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div style="width:58%;background:#fff;border:1px solid #999;height:100%;float:left;margin-left:14px;border-radius:5px;">
+						<div class="form_header">汽车行业排行榜</div>
+						<table style="border-collapse:collapse;margin:10px auto;" class="carSellMsg">
+							<tr>
+								<td>排行</td>
+								<td width="46">品牌</td>
+								<td width="280" style="text-align:left;text-indent:20px;">搜索指数</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td width="46">大众</td>
+								<td width="280" style="text-align:left;text-indent:20px;">
+									<span style="display:inline-block;float:left;">48912001</span>
+									<div style="height:7px;background:#EEEDED;width:168px;float:left;margin:6px 8px;">
+										<div style="height:7px;background:#EC6E51;width:80%;"></div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!--E  right-->
+<style>
+
+</style>
+ </body>
+</html>
