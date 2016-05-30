@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 该了配置文件不需要重部署 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- 改变默认编码 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+	<!-- package name="struts2" extends="struts-default">
+		<action name="login_*" method="{1}" class="com.zhijian.action.LoginAction">
+			<result>/pages/loginSuccess.jsp</result>
+		</action>
+	</package-->
+	
+	<package name="articlePack" namespace="/article" extends="struts-default">
+		<action name="article_*" method="{1}" class="com.zhijian.action.OperateArtcleAction">
+			<result name="insert" type="redirect">/index.html</result>
+		</action>
+	</package>
+	
+	<package name="jsonPack" namespace="/json" extends="json-default">
+		<action name="article_*" method="{1}" class="com.zhijian.action.OperateArtcleAction">
+			<result type="json" name="ajaxSuccess">
+				<param name="ignoreHierachy">false</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+			<result type="json" name="getByCond">
+				<param name="ignoreHierachy">false</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+	</package>
+</struts>
