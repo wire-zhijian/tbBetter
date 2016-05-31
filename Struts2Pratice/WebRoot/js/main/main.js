@@ -6,7 +6,7 @@ $(function(){
 	}
 	
 	$.ajax({
-		url : 'json/article_getByCond.action',
+		url : '../json/article_getByCond.action',
 		data : {
 			
 		},

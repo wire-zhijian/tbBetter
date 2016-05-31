@@ -16,7 +16,7 @@
 	
 	<package name="articlePack" namespace="/article" extends="struts-default">
 		<action name="article_*" method="{1}" class="com.zhijian.action.OperateArtcleAction">
-			<result name="insert" type="redirect">/index.html</result>
+			<result name="insert" type="redirect">/pages/index.html</result>
 		</action>
 	</package>
 	
@@ -29,6 +29,12 @@
 			<result type="json" name="getByCond">
 				<param name="ignoreHierachy">false</param>
 				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+		<action name="login" method="login" class="com.zhijian.action.LoginAction">
+			<result type="json" name="loginSuccess">
+				<param name="ignoreHierachy">false</param>
+				<param name="excludeNulProperties">true</param>
 			</result>
 		</action>
 	</package>
