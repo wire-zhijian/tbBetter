@@ -83,15 +83,15 @@ public class UserDao {
 			
 			if(this.brithDay != 0){
 				String date = new SimpleDateFormat("yyyy-MM-hh").format(new Date(this.brithDay));
-				extraCond.append(" AND birthday = " + date);
+				extraCond.append(" AND birthday = '" + date + "' ");
 			}
 			
 			if(this.email != null){
-				extraCond.append(" AND email = " + this.email);
+				extraCond.append(" AND email = '" + this.email + "' ");
 			}
 			
 			if(this.password != null){
-				extraCond.append(" AND password = " + this.password);
+				extraCond.append(" AND password = '" + this.password + "' ");
 			}
 			
 			if(this.sex != 0){
