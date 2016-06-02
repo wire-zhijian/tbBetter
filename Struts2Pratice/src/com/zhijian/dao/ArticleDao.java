@@ -95,7 +95,6 @@ public class ArticleDao {
 		}finally{
 			dbCon.disconnest();
 		}
-		System.out.println(id);
 		
 		return id;
 	}
@@ -128,5 +127,24 @@ public class ArticleDao {
 		}
 		
 		return result;
+	}
+	
+	public int deleteById(int id) throws Exception{
+		String sql = " DELETE FROM zhijian_blog.article WHERE " + 
+					 " id = " + id;
+		DBCon dbCon = new DBCon();
+		int count = 0;
+		try {
+			dbCon.connect();
+			dbCon.stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+			dbCon.rs = dbCon.stmt.getGeneratedKeys();
+			if(dbCon.rs.next()){
+				count = dbCon.rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
 	}
 }

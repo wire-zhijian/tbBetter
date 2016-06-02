@@ -31,11 +31,11 @@
 				<param name="excludeNullProperties">true</param>
 			</result>
 		</action>
+	</package>
+	
+	<package name="loginPack" namespace="/login" extends="struts-default">
 		<action name="login" method="login" class="com.zhijian.action.LoginAction">
-			<result type="json" name="loginSuccess">
-				<param name="ignoreHierachy">false</param>
-				<param name="excludeNulProperties">true</param>
-			</result>
+			<result type="redirect" name="loginSuccess">/pages/index.html</result>
 		</action>
 	</package>
 </struts>

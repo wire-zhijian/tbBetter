@@ -40,17 +40,23 @@ public class LoginAction {
 
 	public String login(){
 		ExtraCond extraCond = new UserDao.ExtraCond();
-		extraCond.setUsername(username);
-		extraCond.setPassword(password);
-		try {
-			List<User> result = new UserDao().getByCond(extraCond);
-			if(result.size() > 0){
-				user = result.get(0);
-				ServletActionContext.getRequest().getSession().setAttribute("userId", user.getId());
+		if(username != null && password != null){
+			extraCond.setUsername(username);
+			extraCond.setPassword(password);
+			try {
+				List<User> result = new UserDao().getByCond(extraCond);
+				if(result.size() > 0){
+					user = result.get(0);
+					ServletActionContext.getRequest().getSession().setAttribute("userId", user.getId());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return "loginSuccess";
+	}
+	
+	public String loginFail(){
+		return "loginFail";
 	}
 }

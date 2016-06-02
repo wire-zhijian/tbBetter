@@ -3,8 +3,12 @@ package com.zhijian.action;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.zhijian.dao.ArticleDao;
+import com.zhijian.dao.UserDao;
 import com.zhijian.model.Article;
+import com.zhijian.model.User;
 
 public class OperateArtcleAction {
 	private Integer id;
@@ -14,7 +18,6 @@ public class OperateArtcleAction {
 	private String content;
 	private Integer commentAmount;
 	private List<Article> result;
-	
 	
 	public List<Article> getResult() {
 		return result;
@@ -79,12 +82,17 @@ public class OperateArtcleAction {
 				builder.setTitle(title);
 			}
 			
-			if(author != null){
-				builder.setAuthor(author);
-			}
-			
 			if(content != null){
 				builder.setContent(content);
+			}
+			
+			String userId = String.valueOf(ServletActionContext.getRequest().getSession().getAttribute("userId"));
+			
+			if(userId != null && userId != "null"){
+				List<User> result = new UserDao().getByCond(new UserDao.ExtraCond().setId(Integer.valueOf(userId)));
+				if(result.size() > 0){
+					builder.setAuthor(result.get(0).getUsername());
+				}
 			}
 			
 			new ArticleDao().insert(builder);
@@ -124,5 +132,17 @@ public class OperateArtcleAction {
 		result = new ArticleDao().getByCond(extraCond);
 		
 		return "getByCond";
+	}
+	
+	
+	public String delete(){
+		if(id != null){
+			try {
+				new ArticleDao().deleteById(id);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return "delete";
 	}
 }
