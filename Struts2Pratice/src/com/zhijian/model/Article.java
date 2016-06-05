@@ -1,6 +1,5 @@
 package com.zhijian.model;
 
-import java.util.Date;
 import java.util.List;
 
 public class Article {
@@ -9,7 +8,7 @@ public class Article {
 	private String author;
 	private String title;
 	private String content;
-	private Date createTime;
+	private String createTime;
 	private int commentAmount;
 	private List<String> comments;
 	
@@ -60,11 +59,11 @@ public class Article {
 		this.content = content;
 	}
 	
-	public Date getCreateTime() {
+	public String getCreateTime() {
 		return createTime;
 	}
 	
-	public void setCreateTime(Date createTime) {
+	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
 	}
 	
@@ -93,7 +92,7 @@ public class Article {
 		private String author;
 		private String title;
 		private String content;
-		private Date createTime;
+		private String createTime;
 		
 		public String getAuthor() {
 			return author;
@@ -119,11 +118,11 @@ public class Article {
 			this.content = content;
 		}
 		
-		public Date getCreateTime() {
+		public String getCreateTime() {
 			return createTime;
 		}
 		
-		public InsertBuilder setCreateTime(Date createTime) {
+		public InsertBuilder setCreateTime(String createTime) {
 			this.createTime = createTime;
 			return this;
 		}

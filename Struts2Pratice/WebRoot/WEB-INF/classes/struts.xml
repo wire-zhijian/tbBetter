@@ -30,6 +30,10 @@
 				<param name="ignoreHierachy">false</param>
 				<param name="excludeNullProperties">true</param>
 			</result>
+			<result type="json" name="delete">
+				<param name="ignoreHierachy">false</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
 		</action>
 	</package>
 	

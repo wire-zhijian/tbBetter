@@ -77,7 +77,7 @@ public class ArticleDao {
 			+ "'" + builder.getAuthor() + "', "
 			+ "'" + builder.getContent() + "', "
 			+ 0 + "," 
-			+ "'" + new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(builder.getCreateTime())  + "'); ";
+			+ "'" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(builder.getCreateTime())  + "'); ";
 		
 		DBCon dbCon = new DBCon();
 		int id = 0;
@@ -118,7 +118,7 @@ public class ArticleDao {
 				article.setContent(dbCon.rs.getString("content"));
 				article.setId(dbCon.rs.getInt("id"));
 				article.setTitle(dbCon.rs.getString("title"));
-				article.setCreateTime(dbCon.rs.getTimestamp("create_time"));
+				article.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(dbCon.rs.getTimestamp("create_time")));
 				result.add(article);
 			}
 			

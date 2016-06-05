@@ -36,6 +36,7 @@
 //			success : function(data){
 //				$('#loginBtn_input_login').val('登陆');
 //				isProcessing = false;
+//				window.location.href = "pages/index.html";
 //			},
 //			error : function(req, status, err){
 //				$('#loginBtn_input_login').val('登陆');

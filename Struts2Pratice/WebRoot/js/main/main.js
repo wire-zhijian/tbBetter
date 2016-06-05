@@ -1,7 +1,8 @@
 $(function(){
 	
 	function DateUtil(strDate){
-		var date = new Date(strDate);
+//		var date = new Date(strDate);
+		var date = new Date(Date.parse(strDate));
 		return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds(); 
 	}
 	
@@ -16,6 +17,7 @@ $(function(){
 			if(data.result){
 				data.result.forEach(function(el, index){
 					var artcle = ArticleContainer.newInstance({
+						id : el.id,
 						title : el.title,
 						author : el.author,
 						commentAmount : el.commentAmount,

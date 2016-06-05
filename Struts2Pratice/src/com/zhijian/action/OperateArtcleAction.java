@@ -1,5 +1,6 @@
 package com.zhijian.action;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -77,7 +78,7 @@ public class OperateArtcleAction {
 	
 	public String insert(){
 		try {
-			Article.InsertBuilder builder = new Article.InsertBuilder().setCreateTime(new Date());
+			Article.InsertBuilder builder = new Article.InsertBuilder().setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 			if(title != null){
 				builder.setTitle(title);
 			}

@@ -1,7 +1,8 @@
 (function(){
     function createArticleContainer(params){
         var param = params || {
-                title : null,            //标题
+                id : null,
+        		title : null,            //标题
                 content : null,         //内容
                 author : null,          //作者
                 createTime : null,		//创建时间
@@ -30,6 +31,9 @@
                         '<span class="artcleFont">评论：</span>'+
                         '<span class="artcleFont">【<span data-type="artcle_commentAmount">' + param.commentAmount + '</span>】</span>'+
                         '</div>'+
+                        '<span data-type="showDelete_articleCon" style="margin-left:2%;display:inline-block;width:20px;height:20px;position:relative;background:url(\'../images/delete.png\') no-repeat center;cursor:pointer;">'+
+                        '<span data-type="deleteBtn" style="color:#AF3F08;width: 46px;height: 22px;border-radius: 5px;text-align: center;line-height: 22px;display:none;position:absolute;background:#0E0E5D;right:-26px;bottom:-16px;" name=\'' + (param.id ? param.id : '') + '\'>删除</span>'+
+                        '</span>'+
                         '</div>'+
                         '</div>'+
                         '</div>'+
@@ -37,6 +41,7 @@
                         '<p style="min-height:100px;max-height:200px;color:#666;text-indent:10px;">' + param.content + '</p>'+
                         '</div>'+
                         '</article>;';
+        
 
         init();
 
@@ -116,7 +121,34 @@
                     document.documentElement.appendChild(_articleContainerBox);
                 }
             }
+            
+            $(_articleContainerBox).find('[data-type=showDelete_articleCon]').click(function(e){
+            	$(this).find('[data-type=deleteBtn]').fadeIn();
+            	e.stopPropagation();
+            });
 
+            $(_articleContainerBox).find('[data-type=deleteBtn]').click(function(){
+            	if(this.getAttribute('name')){
+            		$.ajax({
+            			url : '../json/article_delete.action',
+            			data : {
+            				id : this.getAttribute('name')
+            			},
+            			type : 'post',
+            			dataType : 'json',
+            			success : function(){
+            				$(_articleContainerBox).remove();
+            				alert('删除成功');
+            			}
+            		});
+            	}else{
+            		alert('删除失败');
+            	}
+            });
+            
+            document.documentElement.onclick = function(){
+            	$('[data-type=deleteBtn]').fadeOut();
+            };
             return this;
         };
 
