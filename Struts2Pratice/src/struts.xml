@@ -47,6 +47,12 @@
 				<param name="excludeNullProperties">true</param>
 			</result>
 		</action>
+		<action name="comment/*" method="{1}" class="com.zhijian.action.OperateCommentAction">
+			<result type="json" name="insert">
+				<param name="ignoreHierachy">false</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
 	</package>
 	
 	<package name="loginPack" namespace="/login" extends="struts-default">

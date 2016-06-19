@@ -10,7 +10,6 @@
                 commentAmount : null  //评论次数
 //                forWardAmount : null   //转发次数  暂时不提供
             };
-        var _articleContainerBox;
 
         var container = '<article style="width:100%;margin-top:10px;">'+
                         '<div class="artcleHead">'+
@@ -41,41 +40,22 @@
                         '<p style="min-height:100px;max-height:200px;color:#666;text-indent:10px;">' + param.content + '</p>'+
                         '</div>'+
                         '<div data-type="commentContainer_article"style="display:none;background:#171717;width:100%;min-height:60px;max-height:300px;">' +
-                        '<input type="text" placeholder="输入评论" style="text-indent:10px;float:left;margin-top:5px;margin-left:5%;width:80%;height:30px;background:#000;color:#ccc;border:none;"/>' +
+                        '<input data-type="commentContents_article"　type="text" placeholder="输入评论" style="text-indent:10px;float:left;margin-top:5px;margin-left:5%;width:80%;height:30px;background:#000;color:#ccc;border:none;"/>' +
 //						<input type="text" name="title" style="background:#000;border-color:#000;color:#ccc;margin-bottom:16px;width:60%;height:30px;line-height:30px;" placeholder="请输入你的标题"/><br/>
-                        '<input type="button" value="添加评论" style="cursor:pointer;background:#383131;width:80px;height:30px;float:left;margin-top:5px;border:none;"/>'+
+                        '<input data-type="addCommentBtn_article" type="button" value="添加评论" style="cursor:pointer;background:#383131;width:80px;height:30px;float:left;margin-top:5px;border:none;"/>'+
                         '<div style="clear:both;"></div>'+
                         '<p style="margin-left:5%;color:#aaa;padding-top:5px;border-top:1px solid #333;width:80%;display:inline-block;"><span>作者名：</span><span>他说了什么</span></p>' +
                         '</div>'+
                         '</article>;';
         
 
-        init();
 
+        var _articleContainerBox;
+        init();
         function init(){
             _articleContainerBox = document.createElement('div');
             _articleContainerBox.id = 'ArticleContainer' + new Date().getTime();
-//            var c = container.replace("/{title}/", param.title)
-//            		 .replace("/{author}/g", param.author)
-//            		 .replace("/{commentAmount}/g", param.commentAmount)
-//            		 .replace("/{createTime}/g", param.createTime)
-//            		 .replace("/{content}/g", param.content);
-            
             _articleContainerBox.innerHTML = container;
-            //if(param.title){
-            //    if(findNodes('data-type', 'article_title')){
-            //        findNodes('data-type', 'article_title')[0].innerHTML = param.title;
-            //    }
-            //}
-//            for(var paramKey in param){
-//                if(param[paramKey]){
-//                    if(findNodes('data-type', paramKey, null, true)){
-//                        findNodes('data-type', paramKey, null, true)[0].innerHTML = param[paramKey];
-//                    }
-//                }
-//            }
-            
-            
         }
 
         
@@ -133,12 +113,32 @@
             	$(this).find('[data-type=deleteBtn]').fadeIn();
             	e.stopPropagation();
             });
+            
             //TODO
             $(_articleContainerBox).find('[data-type=showComment_artivleCon]').click(function(e){
             	$(_articleContainerBox).find('[data-type=commentContainer_article]').slideToggle('normal', function(){
             		if($(_articleContainerBox).find('[data-type=commentContainer_article]').css('display') != 'none'){
-            			//ajax
-            			//TODO
+            			
+            			//添加评论
+            			$(_articleContainerBox).find('[data-type=addCommentBtn_article]').each(function(index, el){
+            				el.onclick = function(){
+            					var comments = $(_articleContainerBox).find('[data-type=commentContents_article]');
+            					$.ajax({
+            						url : '../json/comment/insert',
+            						type : 'post',
+            						dataType : 'json',
+            						data : {
+            							content : comments
+            						},
+            						success : function(){
+            							
+            						},
+            						error : function(){
+            							
+            						}
+            					});
+            				};
+            			});
             		}
             	});
             	e.stopPropagation();
@@ -184,5 +184,5 @@
         newInstance : function(param){
             return new createArticleContainer(param);
         }
-    }
+    };
 })();
