@@ -9,6 +9,7 @@ import java.util.List;
 import com.zhijian.model.User;
 import com.zhijian.model.User.InsertBuilder;
 import com.zhijian.model.User.Status;
+import com.zhijian.model.User.UpdateBuilder;
 import com.zhijian.util.DBCon;
 
 public class UserDao {
@@ -21,56 +22,79 @@ public class UserDao {
 		private int sex;
 		private int age;
 		private Status status;
+		
 		public int getId() {
 			return id;
 		}
+		
 		public ExtraCond setId(int id) {
 			this.id = id;
 			return this;
 		}
+		
 		public String getUsername() {
 			return username;
 		}
+		
 		public ExtraCond setUsername(String username) {
 			this.username = username;
 			return this;
 		}
+		
 		public String getPassword() {
 			return password;
 		}
-		public void setPassword(String password) {
+		
+		public ExtraCond setPassword(String password) {
 			this.password = password;
+			return this;
 		}
+		
 		public String getEmail() {
 			return email;
 		}
-		public void setEmail(String email) {
+		
+		public ExtraCond setEmail(String email) {
 			this.email = email;
+			return this;
 		}
+		
 		public long getBrithDay() {
 			return brithDay;
 		}
-		public void setBrithDay(long brithDay) {
+		
+		public ExtraCond setBrithDay(long brithDay) {
 			this.brithDay = brithDay;
+			return this;
 		}
+		
 		public int getSex() {
 			return sex;
 		}
-		public void setSex(int sex) {
+		
+		public ExtraCond setSex(int sex) {
 			this.sex = sex;
+			return this;
 		}
+		
 		public int getAge() {
 			return age;
 		}
-		public void setAge(int age) {
+		
+		public ExtraCond setAge(int age) {
 			this.age = age;
+			return this;
 		}
+		
 		public Status getStatus() {
 			return status;
 		}
-		public void setStatus(Status status) {
+		
+		public ExtraCond setStatus(Status status) {
 			this.status = status;
+			return this;
 		}
+		
 		@Override
 		public String toString() {
 			StringBuilder extraCond = new StringBuilder();
@@ -104,6 +128,10 @@ public class UserDao {
 				extraCond.append(" AND status = " + this.status.getVal());
 			}
 			
+			if(this.username != null){
+				extraCond.append(" AND name = '" + this.username + "' ");
+			}
+			
 			return extraCond.toString();
 		}
 	}
@@ -116,10 +144,10 @@ public class UserDao {
 	 */
 	public int insert(InsertBuilder builder)throws Exception{
 		String sql = " INSERT INTO zhijian_blog.user(name,password,email,birthday,sex,age,status)VALUES( " +
-					 builder.getUsername() + ", " + 
-					 builder.getPassword() + ", " + 
-					 builder.getEmail() + ", " + 
-					 builder.getBrithDay() + ", " + 
+					 " '" + builder.getUsername() + "', " + 
+					 " '" + builder.getPassword() + "', " + 
+					 " '" + builder.getEmail() + "', " + 
+					 " '" + builder.getBrithDay() + "', " + 
 					 builder.getSex() + ", " + 
 					 builder.getAge() + ", " + 
 					 builder.getStatus().getVal() + 
@@ -134,8 +162,8 @@ public class UserDao {
 				id = dbCon.rs.getInt(1);
 			}
 			
-		} catch (Exception e) {
-			e.printStackTrace();
+		} finally{
+			dbCon.disconnest();
 		}
 		
 		return id;
@@ -162,19 +190,48 @@ public class UserDao {
 				User user = new User();
 				user.setId(dbCon.rs.getInt("id"));
 				user.setAge(dbCon.rs.getInt("age"));
-				user.setBrithDay(dbCon.rs.getDate("birthday").getTime());
+				user.setBrithDay(new SimpleDateFormat("yyyy-MM-dd").format(dbCon.rs.getDate("birthday")));
 				user.setEmail(dbCon.rs.getString("email"));
 				user.setSex(dbCon.rs.getInt("sex"));
 				user.setPassword(dbCon.rs.getString("password"));
 				user.setStatus(User.Status.valueOf(dbCon.rs.getInt("status")));
 				user.setUsername(dbCon.rs.getString("name"));
+				user.setSelfDesc(dbCon.rs.getString("desc"));
 				users.add(user);
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} finally{
+			dbCon.disconnest();
 		}
 		
 		return users;
+	}
+	
+	
+	/**
+	 * update user message by builder
+	 * @param builder
+	 * @throws Exception
+	 */
+	public void update(UpdateBuilder builder)throws Exception{
+		String sql = " UPDATE zhijian_blog.user SET " + 
+					 " id = " + builder.getId() +
+					 (builder.getAge() != 0 ? ", `age` = " + builder.getAge() : "") + 
+					 (builder.getBrithDay() != null ? ", `birthday`= '" + builder.getBrithDay() + "'" : "") +
+					 (builder.getEmail() != null ? ", `email` = '" + builder.getEmail() + "'" : "") +
+					 (builder.getPassword() != null ? ", `password` = '" + builder.getPassword() + "'" : "") +
+					 (builder.getUsername() != null ? ", `name` = '" + builder.getUsername() + "'" : "") +
+					 (builder.getStatus() != null ? ", `status` = " + builder.getStatus().getVal() : "") + 
+					 (builder.getSelfDesc() != null ? ", `desc` = '" + builder.getSelfDesc() + "'" : "") + 
+					 (builder.getSex() != 0 ? ", `sex` = " + builder.getSex() : "") + 
+					 " WHERE 1 = 1 " + 
+					 " AND id = " + builder.getId();
+		DBCon dbCon = new DBCon();
+		try {
+			dbCon.connect();
+			dbCon.stmt.executeUpdate(sql);
+		}finally{
+			dbCon.disconnest();
+		}
 	}
 }
 

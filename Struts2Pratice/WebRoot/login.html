@@ -8,14 +8,14 @@
     <script type="text/javascript" src="js/login/login.js"></script>
   </head>
   
-  <body style="opacity:0.5;">
-	<form action="login/login.action" method="post" style="overflow:hidden; background-color: #324D65;border-radius: 10px;box-shadow: 0px -1px 25px #fff;display:inline-block;width:450px;height:300px;margin-left:calc(50% - 225px);margin-top:100px;">
+  <body style="background:#000;">
+	<form id="form_login" action="login/login.do" method="post" style="overflow:hidden; background-color: #324D65;border-radius: 10px;box-shadow: 0px -1px 25px #fff;display:inline-block;width:450px;height:300px;margin-left:calc(50% - 225px);margin-top:100px;">
 		<span style="height:56px;width:170px;display:inline-block;background:url('images/logo.png')no-repeat;background-position:-13px -18px;"></span><br/>
 		<label for="username" style="color:#fff;font-weight:bold;margin-left:12%;">账号：</label><input id="username_input_login" type="text" name="username" style="background:black;height:30px;line-height:30px;border: 1px solid #6B5050;width:250px;margin:20px auto;color:#ccc;"/><br/>
 		<label for="password" style="color:#fff;font-weight:bold;margin-left:12%;">密码：</label><input id="password_input_login" type="password" name="password" style="background:black;height:30px;line-height:30px;border: 1px solid #6B5050;width:250px;color:#ccc;"/><br/>
 		<div style="margin-top:30px;display:inline-block;width:100%;text-align:center;">
 			<input id="loginBtn_input_login" type="submit" value="登陆" style="border: none;display: inline-block;width: 80px;height: 25px;border-radius: 8px;color: #666;font-weight: bold;"/>
-			<input id="extraLoginBtn_input_login" type="button" value="游客" style="border: none;display: inline-block;width: 80px;height: 25px;border-radius: 8px;color: #666;font-weight: bold;"/>
+			<input id="extraLoginBtn_input_login" type="button" value="注册" style="border: none;display: inline-block;width: 80px;height: 25px;border-radius: 8px;color: #666;font-weight: bold;"/>
 		</div>
 	</form>
   </body>

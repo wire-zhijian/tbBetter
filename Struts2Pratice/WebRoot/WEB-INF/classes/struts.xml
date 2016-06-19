@@ -15,13 +15,13 @@
 	</package-->
 	
 	<package name="articlePack" namespace="/article" extends="struts-default">
-		<action name="article_*" method="{1}" class="com.zhijian.action.OperateArtcleAction">
+		<action name="article/*" method="{1}" class="com.zhijian.action.OperateArtcleAction">
 			<result name="insert" type="redirect">/pages/index.html</result>
 		</action>
 	</package>
 	
 	<package name="jsonPack" namespace="/json" extends="json-default">
-		<action name="article_*" method="{1}" class="com.zhijian.action.OperateArtcleAction">
+		<action name="article/*" method="{1}" class="com.zhijian.action.OperateArtcleAction">
 			<result type="json" name="ajaxSuccess">
 				<param name="ignoreHierachy">false</param>
 				<param name="excludeNullProperties">true</param>
@@ -31,6 +31,18 @@
 				<param name="excludeNullProperties">true</param>
 			</result>
 			<result type="json" name="delete">
+				<param name="ignoreHierachy">false</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+		<action name="register" class="com.zhijian.action.RegisterAction">
+			<result type="json" name="register">
+				<param name="ignoreHierachy">false</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+		<action name="user/*" method="{1}" class="com.zhijian.action.OperateUserAction">
+			<result type="json" name="user">
 				<param name="ignoreHierachy">false</param>
 				<param name="excludeNullProperties">true</param>
 			</result>

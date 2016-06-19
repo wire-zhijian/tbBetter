@@ -11,11 +11,23 @@ public class Article {
 	private String createTime;
 	private int commentAmount;
 	private List<String> comments;
+	private int authorId;
 	
 	public Article(){
 		
 	}
 	
+	
+	public int getAuthorId() {
+		return authorId;
+	}
+
+
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
+	}
+
+
 	public Article(int id){
 		this.id = id;
 	}
@@ -93,7 +105,17 @@ public class Article {
 		private String title;
 		private String content;
 		private String createTime;
+		private int authorId;
 		
+		
+		public int getAuthorId() {
+			return authorId;
+		}
+
+		public void setAuthorId(int authorId) {
+			this.authorId = authorId;
+		}
+
 		public String getAuthor() {
 			return author;
 		}
@@ -131,4 +153,42 @@ public class Article {
 			return new Article(this);
 		}
 	}
+	
+	public static enum Status{
+		NORMAL(1, "正常"),
+		DELETE(0, "已删除");
+		
+		private final int val;
+		private final String desc;
+		
+		Status(int val, String desc){
+			this.val = val;
+			this.desc = desc;
+		}
+		
+		@Override
+		public String toString() {
+			return "status = (" + 
+				   "val = " + val + 
+				   "desc = " + desc + ")";
+		}
+		
+		public Status valueOf(int val){
+			for(Status status : values()){
+				if(status.val == val){
+					return status;
+				}
+			}
+			throw new IllegalArgumentException("the Article (value = " + val + ") is invalid ");
+		}
+		
+		public int getValue(){
+			return val;
+		}
+		
+		public String getDesc(){
+			return desc;
+		}
+	}
+
 }

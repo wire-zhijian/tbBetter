@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.zhijian.model.Article;
 import com.zhijian.util.DBCon;
 
@@ -18,8 +20,18 @@ public class ArticleDao {
 		private String createTime;
 		private String content;
 		private Integer commentAmount;
+		private Integer status;
+		private boolean isSelf;
+		private Integer authorId;
+		
+		public void setIsSelf(boolean isSelf){
+			this.isSelf = isSelf;
+		}
 		public void setId(Integer id) {
 			this.id = id;
+		}
+		public void setAuthorId(Integer authorId){
+			this.authorId = authorId;
 		}
 		public void setTitle(String title) {
 			this.title = title;
@@ -36,32 +48,49 @@ public class ArticleDao {
 		public void setCommentAmount(Integer commentAmount) {
 			this.commentAmount = commentAmount;
 		}
+		public void setStatus(Integer status){
+			this.status = status;
+		}
 		
 		@Override
 		public String toString() {
 			StringBuilder extraCond = new StringBuilder();
+			if(this.isSelf){
+				extraCond.append(" AND us.id = " + ServletActionContext.getRequest().getSession().getAttribute("userId"));
+			}
+			
 			if(this.id != null){
-				extraCond.append(" AND id = " + id);
+				extraCond.append(" AND art.id = " + id);
 			}
 			
 			if(this.author != null && !this.author.isEmpty()){
-				extraCond.append(" AND author = " + author);
+				extraCond.append(" AND art.author = " + author);
+			}
+			
+			if(this.authorId != null){
+				extraCond.append(" AND art.author_id = " + this.authorId);
 			}
 			
 			if(this.commentAmount != null){
-				extraCond.append(" AND comment_amount = " + commentAmount);
+				extraCond.append(" AND art.comment_amount = " + commentAmount);
 			}
 			
 			if(this.content != null && !this.content.isEmpty()){
-				extraCond.append(" AND content = " + this.content);
+				extraCond.append(" AND art.content = " + this.content);
 			}
 			
 			if(this.createTime != null){
-				extraCond.append(" AND ceate_time = " + this.createTime);
+				extraCond.append(" AND art.ceate_time = " + this.createTime);
 			}
 			
 			if(this.title != null){
-				extraCond.append(" AND title = " + this.title);
+				extraCond.append(" AND art.title = " + this.title);
+			}
+			
+			if(this.status != null){
+				extraCond.append(" AND art.status = " + this.status);
+			}else{
+				extraCond.append(" AND art.status = " + Article.Status.NORMAL.getValue());
 			}
 			
 			return extraCond.toString();
@@ -72,12 +101,13 @@ public class ArticleDao {
 	
 	public int insert(Article.InsertBuilder builder)throws SQLException, Exception{
 		String sql;
-		sql = " INSERT INTO zhijian_blog.article(title, author, content, comment_amount,create_time) VALUES("
+		sql = " INSERT INTO zhijian_blog.article(title, author, author_id, content, comment_amount,create_time) VALUES("
 			+ "'" + builder.getTitle() + "', " 
 			+ "'" + builder.getAuthor() + "', "
+			+ builder.getAuthorId() + ", "
 			+ "'" + builder.getContent() + "', "
 			+ 0 + "," 
-			+ "'" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(builder.getCreateTime())  + "'); ";
+			+ "'" + builder.getCreateTime()  + "'); ";
 		
 		DBCon dbCon = new DBCon();
 		int id = 0;
@@ -102,7 +132,8 @@ public class ArticleDao {
 	
 	
 	public List<Article> getByCond(ExtraCond extraCond) throws Exception{
-		String sql = " SELECT * FROM zhijian_blog.article " + 
+		String sql = " SELECT art.id, art.author, art.author_id, art.title, art.content, art.status, art.create_time, art.comment_amount FROM zhijian_blog.article art" + 
+					 " JOIN zhijian_blog.user us ON art.author = us.name " + 
 					 " WHERE 1 = 1 " + 
 					 extraCond.toString() + 
 					 " ORDER BY id DESC ";
@@ -114,6 +145,7 @@ public class ArticleDao {
 			while(dbCon.rs.next()){
 				Article article = new Article();
 				article.setAuthor(dbCon.rs.getString("author"));
+				article.setAuthorId(dbCon.rs.getInt("author_id"));
 				article.setCommentAmount(dbCon.rs.getInt("comment_amount"));
 				article.setContent(dbCon.rs.getString("content"));
 				article.setId(dbCon.rs.getInt("id"));
@@ -130,8 +162,10 @@ public class ArticleDao {
 	}
 	
 	public int deleteById(int id) throws Exception{
-		String sql = " DELETE FROM zhijian_blog.article WHERE " + 
-					 " id = " + id;
+		String sql = " UPDATE zhijian_blog.article SET" + 
+					 " status = " + Article.Status.DELETE.getValue() +
+				     " WHERE 1 = 1 " + 
+					 " AND id = " + id;
 		DBCon dbCon = new DBCon();
 		int count = 0;
 		try {
@@ -141,8 +175,8 @@ public class ArticleDao {
 			if(dbCon.rs.next()){
 				count = dbCon.rs.getInt(1);
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} finally{
+			dbCon.disconnest();
 		}
 		
 		return count;

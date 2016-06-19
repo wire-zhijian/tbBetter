@@ -14,7 +14,7 @@
         <nav style="float:right;margin-top:12%;margin-right:28%;">
             <a href="index.html" class="navText enlargeNav">主页</a>
             <a href="edit.html" class="navText enlargeNav">博文编写</a>
-            <a href="mood.html" class="navText enlargeNav choosenNav">说说</a>
+            <a href="mood.html" class="navText enlargeNav choosenNav">消息</a>
             <a href="selfMes.html" class="navText enlargeNav">个人说明</a>
         </nav>
     </div>
@@ -49,7 +49,14 @@
                 </article-->
             </div>
         </div>
-        <div style="width:29%;min-height:440px;float:left;background:red;"></div>
+         <div id="userMsgContainer_div_index" style="width:29%;min-height:440px;float:left;opacity: 0.5;margin-top: 10px;box-shadow: 0px 0px 13px #D61818;">
+        	<div style="width:80%;min-height:300px;margin:20px auto;">
+        		<span style="margin-top:10px;display:block;color:red;text-shadow: 1px 1px 2px #fff;font-weight: bold;">用户简介：</span>
+        		<span style="margin-top:10px;margin-left:20px;display:block;color:red;text-shadow: 1px 1px 2px #fff;font-weight: bold;">昵称：<span id="username_span_index"></span></span>
+        		<span style="margin-top:10px;margin-left:20px;display:block;color:red;text-shadow: 1px 1px 2px #fff;font-weight: bold;">生日：<span id="birthday_span_index"></span></span>
+        		<span style="margin-top:10px;margin-left:20px;display:block;color:red;text-shadow: 1px 1px 2px #fff;font-weight: bold;">个性签名：<br/><span id="selfDesc_span_index"></span></span>
+        	</div>
+        </div>
     </div>
 </body>
 </html>

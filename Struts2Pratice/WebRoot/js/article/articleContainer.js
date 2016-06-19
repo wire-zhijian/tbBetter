@@ -7,7 +7,7 @@
                 author : null,          //作者
                 createTime : null,		//创建时间
 //                seeAmount : null,       //浏览次数  暂时不提供
-                commentAmount : null,  //评论次数
+                commentAmount : null  //评论次数
 //                forWardAmount : null   //转发次数  暂时不提供
             };
         var _articleContainerBox;
@@ -28,7 +28,7 @@
                         '<span class="artcleFont" data-type="artcle_createTime">' + param.createTime + '</span>'+
                         '</div>'+
                         '<div style="float:left;width:20%;padding-left:4px;border-right:1px solid #AF3F08;height:20px;">'+
-                        '<span class="artcleFont">评论：</span>'+
+                        '<span class="artcleFont" data-type="showComment_artivleCon" style="cursor:pointer;">评论：</span>'+
                         '<span class="artcleFont">【<span data-type="artcle_commentAmount">' + param.commentAmount + '</span>】</span>'+
                         '</div>'+
                         '<span data-type="showDelete_articleCon" style="margin-left:2%;display:inline-block;width:20px;height:20px;position:relative;background:url(\'../images/delete.png\') no-repeat center;cursor:pointer;">'+
@@ -39,6 +39,13 @@
                         '</div>'+
                         '<div style="background:#171717;width:100%;min-height:100px;max-height:200px;margin:10px 0;">'+
                         '<p style="min-height:100px;max-height:200px;color:#666;text-indent:10px;">' + param.content + '</p>'+
+                        '</div>'+
+                        '<div data-type="commentContainer_article"style="display:none;background:#171717;width:100%;min-height:60px;max-height:300px;">' +
+                        '<input type="text" placeholder="输入评论" style="text-indent:10px;float:left;margin-top:5px;margin-left:5%;width:80%;height:30px;background:#000;color:#ccc;border:none;"/>' +
+//						<input type="text" name="title" style="background:#000;border-color:#000;color:#ccc;margin-bottom:16px;width:60%;height:30px;line-height:30px;" placeholder="请输入你的标题"/><br/>
+                        '<input type="button" value="添加评论" style="cursor:pointer;background:#383131;width:80px;height:30px;float:left;margin-top:5px;border:none;"/>'+
+                        '<div style="clear:both;"></div>'+
+                        '<p style="margin-left:5%;color:#aaa;padding-top:5px;border-top:1px solid #333;width:80%;display:inline-block;"><span>作者名：</span><span>他说了什么</span></p>' +
                         '</div>'+
                         '</article>;';
         
@@ -126,11 +133,21 @@
             	$(this).find('[data-type=deleteBtn]').fadeIn();
             	e.stopPropagation();
             });
+            //TODO
+            $(_articleContainerBox).find('[data-type=showComment_artivleCon]').click(function(e){
+            	$(_articleContainerBox).find('[data-type=commentContainer_article]').slideToggle('normal', function(){
+            		if($(_articleContainerBox).find('[data-type=commentContainer_article]').css('display') != 'none'){
+            			//ajax
+            			//TODO
+            		}
+            	});
+            	e.stopPropagation();
+            });
 
             $(_articleContainerBox).find('[data-type=deleteBtn]').click(function(){
             	if(this.getAttribute('name')){
             		$.ajax({
-            			url : '../json/article_delete.action',
+            			url : '../json/article/delete',
             			data : {
             				id : this.getAttribute('name')
             			},

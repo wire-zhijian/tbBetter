@@ -7,10 +7,12 @@ public class User {
 	private String username;
 	private String password;
 	private String email;
-	private long brithDay;
+	private String brithDay;
 	private int sex;
 	private int age;
 	private Status status;
+	private String selfDesc;
+	
 	
 	public User(){}
 	
@@ -28,6 +30,15 @@ public class User {
 		this.status = builder.status;
 	}
 	
+	
+	public String getSelfDesc() {
+		return selfDesc;
+	}
+
+	public void setSelfDesc(String selfDesc) {
+		this.selfDesc = selfDesc;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -60,11 +71,11 @@ public class User {
 
 
 
-	public long getBrithDay() {
+	public String getBrithDay() {
 		return brithDay;
 	}
 
-	public void setBrithDay(long brithDay) {
+	public void setBrithDay(String brithDay) {
 		this.brithDay = brithDay;
 	}
 
@@ -173,11 +184,11 @@ public class User {
 	}
 	
 	
-	public class InsertBuilder{
+	public static class InsertBuilder{
 		private String username;
 		private String password;
 		private String email;
-		private long brithDay;
+		private String brithDay;
 		private int sex;
 		private int age;
 		private Status status;
@@ -185,44 +196,51 @@ public class User {
 		public Status getStatus() {
 			return status;
 		}
-		public void setStatus(Status status) {
+		public InsertBuilder setStatus(Status status) {
 			this.status = status;
+			return this;
 		}
 		public String getUsername() {
 			return username;
 		}
-		public void setUsername(String username) {
+		public InsertBuilder setUsername(String username) {
 			this.username = username;
+			return this;
 		}
 		public String getPassword() {
 			return password;
 		}
-		public void setPassword(String password) {
+		public InsertBuilder setPassword(String password) {
 			this.password = password;
+			return this;
 		}
 		public String getEmail() {
 			return email;
 		}
-		public void setEmail(String email) {
+		public InsertBuilder setEmail(String email) {
 			this.email = email;
+			return this;
 		}
-		public long getBrithDay() {
+		public String getBrithDay() {
 			return brithDay;
 		}
-		public void setBrithDay(long brithDay) {
+		public InsertBuilder setBrithDay(String brithDay) {
 			this.brithDay = brithDay;
+			return this;
 		}
 		public int getSex() {
 			return sex;
 		}
-		public void setSex(int sex) {
+		public InsertBuilder setSex(int sex) {
 			this.sex = sex;
+			return this;
 		}
 		public int getAge() {
 			return age;
 		}
-		public void setAge(int age) {
+		public InsertBuilder setAge(int age) {
 			this.age = age;
+			return this;
 		}
 		
 		public User builder(){
@@ -230,21 +248,31 @@ public class User {
 		}
 	}
 	
-	public class UpdateBuilder{
+	public static class UpdateBuilder{
 		private int id;
 		private String username;
 		private String password;
 		private String email;
-		private long brithDay;
+		private String brithDay;
 		private int sex;
 		private int age;
 		private Status status;
+		private String selfDesc;
 		
+		
+		
+		public String getSelfDesc() {
+			return selfDesc;
+		}
+		public void setSelfDesc(String selfDesc) {
+			this.selfDesc = selfDesc;
+		}
 		public Status getStatus() {
 			return status;
 		}
-		public void setStatus(Status status) {
+		public UpdateBuilder setStatus(Status status) {
 			this.status = status;
+			return this;
 		}
 		public UpdateBuilder(int id){
 			this.id = id;
@@ -252,44 +280,51 @@ public class User {
 		public int getId() {
 			return id;
 		}
-		public void setId(int id) {
+		public UpdateBuilder setId(int id) {
 			this.id = id;
+			return this;
 		}
 		public String getUsername() {
 			return username;
 		}
-		public void setUsername(String username) {
+		public UpdateBuilder setUsername(String username) {
 			this.username = username;
+			return this;
 		}
 		public String getPassword() {
 			return password;
 		}
-		public void setPassword(String password) {
+		public UpdateBuilder setPassword(String password) {
 			this.password = password;
+			return this;
 		}
 		public String getEmail() {
 			return email;
 		}
-		public void setEmail(String email) {
+		public UpdateBuilder setEmail(String email) {
 			this.email = email;
+			return this;
 		}
-		public long getBrithDay() {
+		public String getBrithDay() {
 			return brithDay;
 		}
-		public void setBrithDay(long brithDay) {
+		public UpdateBuilder setBrithDay(String brithDay) {
 			this.brithDay = brithDay;
+			return this;
 		}
 		public int getSex() {
 			return sex;
 		}
-		public void setSex(int sex) {
+		public UpdateBuilder setSex(int sex) {
 			this.sex = sex;
+			return this;
 		}
 		public int getAge() {
 			return age;
 		}
-		public void setAge(int age) {
+		public UpdateBuilder setAge(int age) {
 			this.age = age;
+			return this;
 		}
 	}
 }
