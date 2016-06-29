@@ -122,7 +122,8 @@
             			//添加评论
             			$(_articleContainerBox).find('[data-type=addCommentBtn_article]').each(function(index, el){
             				el.onclick = function(){
-            					var comments = $(_articleContainerBox).find('[data-type=commentContents_article]');
+//            					var comments = $(_articleContainerBox).find('[data-type=commentContents_article]');
+            					alert(0);
             					$.ajax({
             						url : '../json/comment/insert',
             						type : 'post',
@@ -130,10 +131,10 @@
             						data : {
             							content : comments
             						},
-            						success : function(){
+            						success : function(res, status, req){
             							
             						},
-            						error : function(){
+            						error : function(req, status, err){
             							
             						}
             					});
