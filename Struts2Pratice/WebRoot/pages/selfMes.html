@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>myBlog</title>
+    <link type="text/css" rel="stylesheet" href="../css/main.css"/>
+    <script type="text/javascript" src="../js/Util/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="../js/user/userMsg.js"></script>
+</head>
+<body>
+    <div class="indexHead redChange" style="position:relative;">
+        <span style="height:56px;width:170px;display:inline-block;background:url('../images/logo.png')no-repeat;background-position:-13px -18px;position:relative;left:8%;top:30%;"></span>
+        <nav style="float:right;margin-top:12%;margin-right:28%;">
+            <a href="index.html" class="navText enlargeNav">主页</a>
+            <a href="edit.html" class="navText enlargeNav">博文编写</a>
+            <a href="mood.html" class="navText enlargeNav">消息</a>
+            <a href="selfMes.html" class="navText enlargeNav choosenNav">个人说明</a>
+        </nav>
+    </div>
+    <div style="width:100%;max-height:800px;min-height:440px;">
+    	<div style="color:#fff;font-weight:bold;overflow:hidden; background-color: #C11616;opacity:0.5;border-radius: 10px;box-shadow: 0px -1px 25px #fff;display:inline-block;width:450px;height:500px;margin-left:calc(50% - 225px);margin-top:50px;">
+			<h2 style="margin-top:20px;margin-left:5px;">个人信息</h2>
+    		<div style="margin:4% 0;width:100%;">
+				<label style="color:#fff;font-weight:bold;margin-left:12%;">账号：</label>
+				<span id="usernameEdit_span_selfMsg" style="margin-left:10%;display:inline-block;height:32px;line-height:32px;">zhijian</span><a id="usernameToEdit_a_selfMsg" href="javascript:void(0);" style="margin-left:10%;">修改</a>
+				<input id="username_input_selfMsg" hidden="hidden" type="text" name="username" style="background:black;height:30px;line-height:30px;border: 1px solid #6B5050;width:250px;color:#ccc;"/>
+			</div>
+    		<div style="margin:4% 0;width:100%;">
+				<label style="color:#fff;font-weight:bold;margin-left:12%;">密码：</label>
+				<span id="passwordEdit_span_selfMsg" style="margin-left:10%;height:32px;line-height:32px;display:inline-block;">密码</span><a id="passwordToEdit_a_selfMsg" href="javascript:void(0);" style="margin-left:10%;">修改</a>
+				<input id="password_input_selfMsg" type="password" name="password" hidden="hidden" style="background:black;height:30px;line-height:30px;border: 1px solid #6B5050;width:250px;color:#ccc;"/>
+			</div>
+    		<div style="margin:4% 0;width:100%;">
+				<label style="margin-left:12%;">性别:</label>
+				<label for="sex_man"><input style="margin-left:10%;" id="sex_man" type="radio" name="sex" value="1"/>男</label>
+				<label for="sex_femal"><input id="sex_femal" type="radio" name="sex" value="2"/>女</label>
+			</div>
+	   		<div style="margin:4% 0;width:100%;">
+				<label style="color:#fff;font-weight:bold;margin-left:12%;">邮箱：</label>
+				<span id="emailEdit_span_selfMsg" style="margin-left:10%;display:inline-block;">邮箱</span><a id="emailToEdit_a_selfMsg" href="javascript:void(0);" style="margin-left:10%;">修改</a>
+				<input id="email_input_selfMsg" type="text" name="email" hidden="hidden" style="background:black;height:30px;line-height:30px;border: 1px solid #6B5050;width:250px;color:#ccc;"/>
+			</div>		
+    		<div style="margin:4% 0;width:100%;">
+				<label style="color:#fff;font-weight:bold;margin-left:12%;">生日：</label>
+				<span id="birthdayEdit_span_selfMsg" style="margin-left:10%;display:inline-block;">生日</span><a id="birthdayToEdit_a_selfMsg" href="javascript:void(0);" style="margin-left:10%;">修改</a>
+				<input id="birthday_input_selfMsg" type="text" name="birthday" hidden="hidden" style="background:black;height:30px;line-height:30px;border: 1px solid #6B5050;width:250px;color:#ccc;"/>
+			</div>
+			<div style="margin:4% 0;width:100%;">
+				<label style="color:#fff;font-weight:bold;margin-left:12%;">个性签名：</label><a id="selfDescToEdit_a_selfMsg" href="javascript:void(0);">修改</a><br/><br/>
+				<span id="selfDescEdit_span_selfMsg" style="margin-left:22%;display:inline-block;min-height:56px;">签名</span>
+				<textArea id="selfDesc_input_selfMsg" hidden="hidden" style="margin-left:22%;background:black;height:50px;border: 1px solid #6B5050;width:250px;color:#ccc;"></textArea>
+			</div>
+			<div style="margin-top:30px;display:inline-block;width:100%;text-align:center;">
+				<input id="saveBtn_input_selfMsg" type="button" value="保存" style="border: none;display: inline-block;width: 80px;height: 25px;border-radius: 8px;color: #666;font-weight: bold;"/>
+				<input id="backBtn_input_selfMsg" type="button" value="返回" style="border: none;display: inline-block;width: 80px;height: 25px;border-radius: 8px;color: #666;font-weight: bold;"/>
+			</div>
+		</div>
+    </div>
+</body>
+</html>

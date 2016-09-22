@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>myBlog</title>
+    <link type="text/css" rel="stylesheet" href="../css/main.css"/>
+    <script type="text/javascript" src="../js/Util/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+    <div class="indexHead redChange" style="position:relative;">
+        <span style="height:56px;width:170px;display:inline-block;background:url('../images/logo.png')no-repeat;background-position:-13px -18px;position:relative;left:8%;top:30%;"></span>
+        <nav style="float:right;margin-top:12%;margin-right:28%;">
+            <a href="index.html" class="navText enlargeNav">主页</a>
+            <a href="edit.html" class="navText enlargeNav choosenNav">博文编写</a>
+            <a href="mood.html" class="navText enlargeNav">消息</a>
+            <a href="selfMes.html" class="navText enlargeNav">个人说明</a>
+        </nav>
+    </div>
+    <div style="width:100%;max-height:800px;min-height:440px;">
+        <div style="width:calc(70% - 2px);margin:10px auto;min-height:440px;">
+            <div style="width:80%;min-height:440px;background:#3A0505;margin:10px auto;border-radius:10px;box-shadow: 0px 0px 4px red;">
+				<form action="../article/article/insert" method="post" style="width:80%;margin:0 auto;padding-top:10px;">
+					<div style="width:10%;float:left;">
+						<label for="title" style="color:#fff;margin-bottom:16px;display:block;height:30px;line-height:30px;">标题：</label>
+						<label for="content" style="color:#fff;margin-bottom:16px;height:200px;">内容：</label>
+					</div>
+					<div style="width:90%;float:left;display:block;">
+						<input type="text" name="title" style="background:#000;border-color:#000;color:#ccc;margin-bottom:16px;width:60%;height:30px;line-height:30px;" placeholder="请输入你的标题"/><br/>
+						<input type="hidden" name="author" value="zhijian"/>
+						<textarea name="content" placeholder="输入文章的内容" style="width:80%;height:200px;margin-bottom:16px;background:#000;border-color:#000;color:#ccc;"></textarea><br/>
+					</div>
+					<div style="clear:both;"></div>
+					<div style="width:50%;margin:0 auto;">
+						<input type="submit" value="提交" style="border:none;width:76px;height:27px;border-radius:5px;"/>
+						<input type="reset" value="重置" style="border:none;width:76px;height:27px;border-radius:5px;"/>					
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
